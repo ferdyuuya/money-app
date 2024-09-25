@@ -3,7 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myapp/main.dart';
+import 'package:myapp/layouts/appbar.dart';
+
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
