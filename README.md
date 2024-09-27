@@ -1,7 +1,6 @@
-# myapp
-
-A new Flutter project.
-
+# MoneyApp
+Abandoned - 270924
+Simple Flutter Project
 ## Getting Started
 
 This project is a starting point for a Flutter application.
