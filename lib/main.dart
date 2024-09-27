@@ -13,11 +13,31 @@ import 'package:myapp/layouts/appbar.dart';
 import 'package:myapp/styles.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _selectedIndex = 0;
+
+  void _navigateNavBar (int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+
+  final List _pagesApp = [
+    MenuPage(),
+    AboutPage(),
+    Profile(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +45,34 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: HeaderBar(title: Text("Main Menu")),
-        body: MenuPage(),
+        body: _pagesApp[_selectedIndex],
         // drawer: DrawerBar(),
-        bottomNavigationBar: BottomNavbar(),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: _navigateNavBar,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info),
+              label: 'About',
+            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.logout),
+            //   label: 'Logout',
+            // ),
+          ],),
       ),
       routes: {
         '/profile': (context) => Profile(),
         '/about': (context) => AboutPage(),
-
       },
     );
-  }}
-
-
-
+  }
+}

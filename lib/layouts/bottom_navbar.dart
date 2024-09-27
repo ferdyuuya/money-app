@@ -3,19 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/main.dart';
 import 'package:myapp/pages/about.dart';
+import 'package:myapp/pages/menu.dart';
 import 'package:myapp/pages/profile.dart';
 import 'package:myapp/styles.dart';
 
-class AppPages  {
-  final _appPages = [
-    const MyApp(),
-    const AboutPage(),
-    const Profile(),
-  ];
-}
 class BottomNavbar extends StatelessWidget {
   BottomNavbar({super.key});
-
+  
 
   @override
   Widget build(BuildContext context) {
